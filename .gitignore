@@ -1,0 +1,21 @@
+# node_modules（必須：依存ライブラリ）
+node_modules/
+
+# ローカルビルド成果物（vite build の出力）
+dist/
+
+# 環境変数ファイル（必要に応じて）
+.env.local
+.env.*.local
+.env.production
+
+# Viteのキャッシュ（高速化用、一応無視しておく）
+.vite/
+
+# OSごとのゴミファイル
+.DS_Store
+Thumbs.db
+
+# IDEごとの設定ファイル（必要に応じて）
+.vscode/
+.idea/
