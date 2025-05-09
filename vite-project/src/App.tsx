@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { XCircle, Trophy, Shield, LogIn, UserPlus, LogOut, Home, List, Users, Award } from 'lucide-react';
+import { XCircle, Trophy, /*Shield,*/ LogIn, UserPlus, LogOut, Home, /*List,*/ Users, Award } from 'lucide-react';
 
 // 認証関連の状態管理
 const useAuth = () => {
