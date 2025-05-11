@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { XCircle, Trophy, /*Shield,*/ LogIn, UserPlus, LogOut, Home, /*List,*/ Users, Award } from 'lucide-react';
 
+const tunnelDomain = 'mushi.f5.si';
 // 認証関連の状態管理
 const useAuth = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -10,7 +11,7 @@ const useAuth = () => {
     if (token) {
       localStorage.setItem('token', token);
       // トークンからユーザー情報を取得
-      fetch('https://your-tunnel-url.com/api/me', {
+      fetch(`https://${tunnelDomain}.com/api/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       .then(res => res.json())
@@ -29,7 +30,7 @@ const useAuth = () => {
 
   const login = async (username, password) => {
     try {
-      const res = await fetch('https://your-tunnel-url.com/api/login', {
+      const res = await fetch('https://mushi.f5.si/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -48,7 +49,7 @@ const useAuth = () => {
 
   const register = async (username, password) => {
     try {
-      const res = await fetch('https://your-tunnel-url.com/api/register', {
+      const res = await fetch(`https://${tunnelDomain}.com/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -410,10 +411,10 @@ function MatchesPage() {
     if (!token) return;
     
     Promise.all([
-      fetch('https://your-tunnel-url.com/api/matches', {
+      fetch(`https://${tunnelDomain}.com/api/matches`, {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(res => res.json()),
-      fetch('https://your-tunnel-url.com/api/players', {
+      fetch(`https://${tunnelDomain}.com/api/players`, {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(res => res.json())
     ])
@@ -435,7 +436,7 @@ function MatchesPage() {
     if (!token) return;
     
     try {
-      const res = await fetch('https://your-tunnel-url.com/api/matches', {
+      const res = await fetch(`https://${tunnelDomain}.com/api/matches`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -618,7 +619,7 @@ function RankingPage() {
   const [error, setError] = useState('');
   
   useEffect(() => {
-    fetch('https://your-tunnel-url.com/api/players/ranking')
+    fetch(`https://${tunnelDomain}.com/api/players/ranking`)
       .then(res => res.json())
       .then(data => {
         setPlayers(data.players || []);
@@ -691,7 +692,7 @@ function PlayersPage() {
   const [error, setError] = useState('');
   
   useEffect(() => {
-    fetch('https://your-tunnel-url.com/api/players')
+    fetch(`https://${tunnelDomain}.com/api/players`)
       .then(res => res.json())
       .then(data => {
         setPlayers(data.players || []);
