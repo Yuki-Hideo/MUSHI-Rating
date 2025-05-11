@@ -11,7 +11,7 @@ const useAuth = () => {
     if (token) {
       localStorage.setItem('token', token);
       // トークンからユーザー情報を取得
-      fetch(`https://${tunnelDomain}.com/api/me`, {
+      fetch(`https://${tunnelDomain}/api/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       .then(res => res.json())
@@ -49,7 +49,7 @@ const useAuth = () => {
 
   const register = async (username, password) => {
     try {
-      const res = await fetch(`https://${tunnelDomain}.com/api/register`, {
+      const res = await fetch(`https://${tunnelDomain}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
@@ -411,10 +411,10 @@ function MatchesPage() {
     if (!token) return;
     
     Promise.all([
-      fetch(`https://${tunnelDomain}.com/api/matches`, {
+      fetch(`https://${tunnelDomain}/api/matches`, {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(res => res.json()),
-      fetch(`https://${tunnelDomain}.com/api/players`, {
+      fetch(`https://${tunnelDomain}/api/players`, {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(res => res.json())
     ])
@@ -436,7 +436,7 @@ function MatchesPage() {
     if (!token) return;
     
     try {
-      const res = await fetch(`https://${tunnelDomain}.com/api/matches`, {
+      const res = await fetch(`https://${tunnelDomain}/api/matches`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -619,7 +619,7 @@ function RankingPage() {
   const [error, setError] = useState('');
   
   useEffect(() => {
-    fetch(`https://${tunnelDomain}.com/api/players/ranking`)
+    fetch(`https://${tunnelDomain}/api/players/ranking`)
       .then(res => res.json())
       .then(data => {
         setPlayers(data.players || []);
@@ -692,7 +692,7 @@ function PlayersPage() {
   const [error, setError] = useState('');
   
   useEffect(() => {
-    fetch(`https://${tunnelDomain}.com/api/players`)
+    fetch(`https://${tunnelDomain}/api/players`)
       .then(res => res.json())
       .then(data => {
         setPlayers(data.players || []);
