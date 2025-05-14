@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { XCircle, Trophy, /*Shield,*/ LogIn, UserPlus, LogOut, Home, /*List,*/ Users, Award } from 'lucide-react';
 
-const tunnelDomain = 'mushi.f5.si';
+const tunnelDomain = 'mushi.jnss88.com';
 // 認証関連の状態管理
 const useAuth = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
