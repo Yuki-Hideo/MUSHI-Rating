@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-oauth/google": "^0.12.2",
     "express": "^5.1.0",
+    "googleapis": "^148.0.0",
     "lucide-react": "^0.508.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
@@ -34,7 +36,6 @@
     "vite": "^6.3.5"
   },
   "packageManager": "pnpm@8.7.1",
-
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "main": "eslint.config.js",
   "keywords": [],
